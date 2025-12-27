@@ -8,31 +8,49 @@ with open('LoreExplore/data/regions.json') as f:
 with open('LoreExplore/data/vanguard.json') as f: 
      vang = json.load(f)
 
-
-
-def search_characters(search_term):
-    search_term = search_term.lower() #case sensitive 
+def main(): #doesnt need parameters
+    user_input = input("Enter a character, region or vangaurd: ")
+    result = search_characters(user_input)# the function is search character
     
-    for character in chars["characters"]: #loops through each character in th elist and prints the name field
-        if character["name"].lower() == search_term:
-            return(character["name"])
-    return None
-user_input = input("Enter a character name: ")
-result = search_characters(user_input) # the function is search characters
-print(result)
+    if result is None:
+        result = search_region(user_input)
+    
+    if result is None:
+         result = search_vanguards(user_input)
 
-# def search_regions
-  #  for region in regs["regions"]:
-  #  
-  #      if search_term in regs[region]:
-  #          return(region["region_name"])
-  #      return
-# def search_vanguards
- # for vanguard in vang["vanguards"]:
- #      
- #      if search_term in vang[vanguard]:
- #           return(vanguard["vanguard_name"])
- #      return
+    
+
+    print(result)
+
+def search_characters(search_term): # search_terms is the input i cam checking in json data
+    search_term = search_term.lower() #takes what the user put to lower case 
+    
+    for character in chars["characters"]: #loops through each character in the list 
+        if character["name"].lower() == search_term:
+            return(character["name"]) #if name is found it returns and stops looping
+    return None
+
+
+
+def search_region(search_term): # search_terms is the input i cam checking in json data
+    search_term = search_term.lower() #takes what the user put to lower case 
+    
+    for region in regs["regions"]: #loops through each character in the list 
+        if region["region_name"].lower() == search_term:
+            return(region["region_name"]) #if name is found it returns and stops looping
+    return None #loop finishes with no matcha and returns none
+
+def search_vanguards(search_term):
+    search_term = search_term.lower()
+    
+    for vanguard in vang["vanguards"]:
+      if vanguard["vanguard_name"].lower() == search_term:
+           return(vanguard["vanguard_name"])
+    return None
+
+main() #call my function or else it wont even show up
+
+
 
 
  

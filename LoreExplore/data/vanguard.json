@@ -1,10 +1,10 @@
 {"vanguards":
 [
     {
-        "vanguard_name": ["Elder Eye"]
+        "vanguard_name": "Elder Eye"
     },
     {   
-        "vanguard_name": ["Tempest"]
+        "vanguard_name": "Tempest"
     }
     
 ]} 
