@@ -1,16 +1,17 @@
 {"characters":
 [
     {
-        "name": ["jicho"]
+        "name": "jicho"
     },
     {   
-        "name": ["Amara"]
+        "name": "Amara"
     },
     {   
-        "name":["Sikio"]
+        "name":"Sikio"
     },
     {
-        "name":["Inzondo"]
+        "name":"Inzondo"
     }
     
 ]} 
+
