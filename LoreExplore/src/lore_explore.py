@@ -8,49 +8,74 @@ with open('LoreExplore/data/regions.json') as f:
 with open('LoreExplore/data/vanguard.json') as f: 
      vang = json.load(f)
 
-def main(): #doesnt need parameters
-    user_input = input("Enter a character, region or vangaurd: ")
-    result = search_characters(user_input)# the function is search character
+def main(): #doesnt need parameters, need one main function to take user input and call the other functions if not found in one.
     
-    if result is None:
-        result = search_region(user_input)
+    user_input = input("Enter a character, region or vangaurd: ").lower()#moved lower here
     
-    if result is None:
-         result = search_vanguards(user_input)
-
+    result = search_characters(user_input)# checks character data first if result is none goes to next function
+    if result:
+        display_character(result) #goes to next function
+        return
     
-
-    print(result)
-
-def search_characters(search_term): # search_terms is the input i cam checking in json data
-    search_term = search_term.lower() #takes what the user put to lower case 
+    result = search_region(user_input)
+    if result:
+        display_region(result)
+        return
     
-    for character in chars["characters"]: #loops through each character in the list 
-        if character["name"].lower() == search_term:
-            return(character["name"]) #if name is found it returns and stops looping
+    result = search_vanguards(user_input)
+    if result: 
+        display_vanguard(result)
+        return
+    
+    print("Not Found")
+    
+def search_characters(name): #searches name through dictionary
+    for character in chars["characters"]:
+        if character["name"].lower() == name:
+            return character #returns entire dictionary
     return None
 
 
+def search_region(name):
+    for region in regs["regions"]:
+        if region["region_name"].lower() == name:
+            return region
+    return None
 
-def search_region(search_term): # search_terms is the input i cam checking in json data
-    search_term = search_term.lower() #takes what the user put to lower case 
-    
-    for region in regs["regions"]: #loops through each character in the list 
-        if region["region_name"].lower() == search_term:
-            return(region["region_name"]) #if name is found it returns and stops looping
-    return None #loop finishes with no matcha and returns none
 
-def search_vanguards(search_term):
-    search_term = search_term.lower()
-    
+def search_vanguards(name):
     for vanguard in vang["vanguards"]:
-      if vanguard["vanguard_name"].lower() == search_term:
-           return(vanguard["vanguard_name"])
+        if vanguard["vanguard_name"].lower() == name:
+            return vanguard
     return None
+
+
+
+def display_character(character): #gets to this function and formats traits so no seen brackets
+    print(f"Name: {character.get('name')}")    
+    traits = character.get("traits", []) #get fetches everything associated with traits if there is any otherwise nothing
+    if traits:
+        print("Traits: ")
+        for trait in traits: #goes through list and displays each trait
+            print(f"- {trait}") #displays each trait with a bracket as a list
+
+
+def display_region(region):
+    print(f"Region: {region.get('region_name')}")
+    descriptions = region.get("descriptions", [])
+    if descriptions:
+        print("Descriptions: ")
+        for descriptions in descriptions:
+            print(f"- {descriptions}")
+ 
+
+def display_vanguard(vanguard):
+    print(f"Vanguard: {vanguard.get('vanguard_name')}")
+    roles = vanguard.get("roles", [])
+    if roles:
+        print("Roles: ")
+        for role in roles:
+            print(f"- {role}")
 
 main() #call my function or else it wont even show up
 
-
-
-
- 

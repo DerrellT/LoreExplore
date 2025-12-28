@@ -1,16 +1,19 @@
 {"regions":
 [
     {
-        "region_name": "Rema"
+        "region_name": "Rema",
+        "descriptions": ["Humid", "Rainy"]
     },
     {   
-        "region_name": "Rumos"
+        "region_name": "Rumos",
+        "descriptions": ["Hot", "Dry"]
     },
     {   
         "region_name": "Yumtal"
     },
     {
-        "region_name": "Candros"
+        "region_name": "Candros",
+        "descriptions":["Urban", "Castles"]
     }
     
 ]} 

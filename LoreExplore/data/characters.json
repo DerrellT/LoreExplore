@@ -1,20 +1,25 @@
 {"characters":
 [
     {
-        "name": "jicho"
+        "name": "Jicho",
+        "traits": ["Timid", "Observant"]
         
     },
     {   
-        "name": "Amara"
+        "name": "Amara",
+        "traits": ["Constructive", "Honest", "Protective"]
     },
     {   
-        "name":"Sikio"
+        "name":"Sikio",
+        "traits": ["Hot head", "Flashy"]
     },
     {
         "name":"Inzondo"
+       
     }, 
     {
-        "name": "Hani"
+        "name": "Hani",
+        "traits": ["Bubbly", "Optimistic"]
     }
     
 ]} 
