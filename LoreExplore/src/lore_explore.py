@@ -9,7 +9,19 @@ with open('LoreExplore/data/vanguard.json') as f:
      vang = json.load(f)
 
 def main(): #doesnt need parameters, need one main function to take user input and call the other functions if not found in one.
-    
+    print("------Characters------ ")
+    for character in chars["characters"]:
+            
+            print(character.get("name")) #lists name for users to chose
+    print("------Regions-------- ")         
+    for region in regs["regions"]:
+           
+            print(region.get("region_name"))
+    print("------Vanguards------ ")
+    for vanguard in vang["vanguards"]:
+        
+        print(vanguard.get("vanguard_name"))
+
     user_input = input("Enter a character, region or vangaurd: ").lower()#moved lower here
     
     result = search_characters(user_input)# checks character data first if result is none goes to next function
@@ -28,6 +40,8 @@ def main(): #doesnt need parameters, need one main function to take user input a
         return
     
     print("Not Found")
+
+    
     
 def search_characters(name): #searches name through dictionary
     for character in chars["characters"]:
@@ -53,7 +67,7 @@ def search_vanguards(name):
 
 def display_character(character): #gets to this function and formats traits so no seen brackets
     print(f"Name: {character.get('name')}")    
-    traits = character.get("traits", []) #get fetches everything associated with traits if there is any otherwise nothing
+    traits = character.get("traits", []) #get fetches everything associated with traits if there is any otherwise nothing. dictionary.get(keyname)
     if traits:
         print("Traits: ")
         for trait in traits: #goes through list and displays each trait
@@ -65,8 +79,8 @@ def display_region(region):
     descriptions = region.get("descriptions", [])
     if descriptions:
         print("Descriptions: ")
-        for descriptions in descriptions:
-            print(f"- {descriptions}")
+        for descr in descriptions:
+            print(f"- {descr}")
  
 
 def display_vanguard(vanguard):
