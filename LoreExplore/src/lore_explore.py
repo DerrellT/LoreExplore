@@ -9,37 +9,57 @@ with open('LoreExplore/data/vanguard.json') as f:
      vang = json.load(f)
 
 def main(): #doesnt need parameters, need one main function to take user input and call the other functions if not found in one.
-    print("------Characters------ ")
-    for character in chars["characters"]:
-            
-            print(character.get("name")) #lists name for users to chose
-    print("------Regions-------- ")         
-    for region in regs["regions"]:
-           
-            print(region.get("region_name"))
-    print("------Vanguards------ ")
-    for vanguard in vang["vanguards"]:
-        
-        print(vanguard.get("vanguard_name"))
+    
+    print("------Characters------ ") #helps user see then seperated sections
+    for character in chars["characters"]: #goes through each character
+        print(character.get("name")) # searches chars and gets each key value which is the names
 
-    user_input = input("Enter a character, region or vangaurd: ").lower()#moved lower here
+    print("------Regions-------- ")      
+
+    for region in regs["regions"]:
+           print(region.get("region_name"))
+
+    print("------Vanguards------ ")
+
+    for vanguard in vang["vanguards"]:
+        print(vanguard.get("vanguard_name"))
     
-    result = search_characters(user_input)# checks character data first if result is none goes to next function
-    if result:
-        display_character(result) #goes to next function
-        return
+    while True:
+        found = False 
+        user_input = input("Enter a Character, Region or Vangaurd from the list above: ").lower()#moved lower here 
+
+        if user_input == "quit": #added the choice to exit before searching through data
+            print("Search ended")
+            break #stops program breaks loop
+        if user_input == "exit":
+            print("Search ended")
+            break
     
-    result = search_region(user_input)
-    if result:
-        display_region(result)
-        return
     
-    result = search_vanguards(user_input)
-    if result: 
-        display_vanguard(result)
-        return
+        result = search_characters(user_input)#checks character data first if result is none goes to next function
+        if result:
+            found = True 
+            display_character(result) #goes to next function
+            
     
-    print("Not Found")
+        result = search_region(user_input)
+        if result:
+            found = True
+            display_region(result)
+            
+    
+        result = search_vanguards(user_input)
+        if result: 
+            found = True
+            display_vanguard(result)
+            
+
+        if not found: #prints below if found remians false
+            print("Not Found.")
+            print("Try again.")
+
+
+    
 
     
     
