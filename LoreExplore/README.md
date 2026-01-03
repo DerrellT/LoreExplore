@@ -28,7 +28,7 @@ python3 --version
 python3 src/lore_explore.py
 ```
 
-## Example Outpu: 
+## Example Output: 
 ```text
 ------Characters------
 Jicho
