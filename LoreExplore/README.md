@@ -17,15 +17,19 @@ Lore Explorer is a Python-based command-line application that allows users to se
 - File I/O
 - Error handling (try/except)
 - Modular functions
-
 ## How to Run
-1. Clone the repository
-2. Ensure Python 3 is installed
-3. Run the main Python file:
-   ```bash
-   python main.py
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/DerrellT/LoreExplore.git
+cd LoreExplore
+python3 --version
+python3 src/lore_explore.py
+```
 
 ## Example Outpu: 
+```text
 ------Characters------
 Jicho
 ------Regions------
