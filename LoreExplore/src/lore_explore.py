@@ -12,7 +12,7 @@ def check_json_files():
         print("Characters JSON is invalid")
     
     try :
-        with open('LoreExplore/data/regionsjson') as f: 
+        with open('LoreExplore/data/regions.json') as f: 
             regs = json.load(f)
     except FileNotFoundError:
         print("Missing Regions JSON File")
@@ -59,7 +59,7 @@ def main(): #doesnt need parameters, need one main function to take user input a
     
     while True:
         found = False 
-        user_input = input("Enter a Character, Region or Vangaurd from the list above: ").lower() #moved lower here 
+        user_input = input("Enter a Character, Region or Vanguard from the list above: ").lower() #moved lower here 
 
         if user_input == "quit": #added the choice to exit before searching through data
             print("Search ended")
