@@ -1,16 +1,18 @@
 # Lore Explorer
 
-Lore Explorer is a Python-based command-line application that allows users to search and explore characters, regions, and vanguards from custom lore data.
+Lore Explorer is a Python-based command-line application that allows users to search and explore characters, regions, and vanguards from custom lore data. The goal was to demonstrate Python proficiency, file handling, and modular program design.
+
 
 ## Features
-- Search characters by name
-- Search regions by name
-- Search vanguards by name
-- Graceful handling of missing or invalid JSON data
-- Continuous search loop with user-controlled exit
+- Search characters, regions, and vanguards by name
+- Handling of missing or invalid JSON data
+- Continuous search loop with user-controlled exit (quit or exit)
+-	Cleanly formatted output for better readability
+-	Modular and maintainable code structure
+
 
 ## Technologies Used
-- Python
+- Python 3
 - JSON
 - File I/O
 - Error handling (try/except)
@@ -22,3 +24,17 @@ Lore Explorer is a Python-based command-line application that allows users to se
 3. Run the main Python file:
    ```bash
    python main.py
+
+## Example Outpu: 
+------Characters------
+Jicho
+------Regions------
+Rema
+------Vanguards------
+Elder Eye
+
+Enter a Character, Region or Vanguard from the list above: jicho
+Name: Jicho
+Traits:
+- Timid
+- Observant
